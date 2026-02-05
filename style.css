@@ -1,4 +1,4 @@
-/* ===== GLOBAL ===== */
+/* ================= GLOBAL ================= */
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -18,35 +18,35 @@ h2 {
     margin-top: 0;
 }
 
-/* ===== START SCREEN ===== */
+/* ================= START SCREEN ================= */
 
 #startScreen {
-    width: 850px;
+    width: 900px;
     margin: 40px auto;
-    padding: 35px;
+    padding: 40px;
     background: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
     text-align: left;
 }
 
 #nameSection {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 
 #playerName {
-    padding: 10px;
-    width: 280px;
+    padding: 12px;
+    width: 320px;
     font-size: 16px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid #ccc;
 }
 
 #startBtn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
     background: #1e3a8a;
     color: white;
@@ -58,21 +58,20 @@ h2 {
     background: #162d6b;
 }
 
-/* ===== INSTRUCTION PANEL ===== */
+/* ================= INSTRUCTIONS ================= */
 
 #instructions {
     margin-top: 25px;
 }
 
-.section-title {
-    font-size: 20px;
-    margin-bottom: 8px;
+#instructions h3 {
+    margin-top: 30px;
     border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
 }
 
 #instructions ul {
-    padding-left: 20px;
+    padding-left: 22px;
     margin-top: 8px;
 }
 
@@ -81,31 +80,39 @@ h2 {
     line-height: 1.6;
 }
 
-/* ===== 3x3 EXAMPLE NONOGRAM ===== */
+/* ================= EXAMPLE 5x5 GRID ================= */
+
+.example-wrapper {
+    margin-top: 20px;
+}
 
 .example-grid {
     border-collapse: collapse;
-    margin-top: 15px;
+    margin: 15px auto;
 }
 
 .example-grid td {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #999;
     text-align: center;
+    font-size: 14px;
+}
+
+.example-clue {
+    background: #eaeaea;
+    font-weight: bold;
 }
 
 .example-fill {
     background: black;
 }
 
-.example-clue {
-    font-size: 14px;
-    font-weight: bold;
-    background: #eaeaea;
+.no-border {
+    border: none !important;
 }
 
-/* ===== GAME AREA ===== */
+/* ================= GAME AREA ================= */
 
 #gameArea {
     margin-top: 20px;
@@ -118,32 +125,35 @@ h2 {
     margin: 15px;
 }
 
-/* ===== NONOGRAM BOARD ===== */
+/* ================= NONOGRAM BOARD ================= */
 
-table {
+#game table {
     border-collapse: collapse;
     margin: 20px auto;
 }
 
-td {
-    width: 30px;
-    height: 30px;
+#game td {
+    width: 32px;
+    height: 32px;
     border: 1px solid #bbb;
     text-align: center;
     vertical-align: middle;
     font-size: 14px;
 }
 
+/* PLAYABLE CELLS */
+
 .cell {
     background: white;
     cursor: pointer;
 }
 
-.fill {
+/* BLACK FILLED CELL */
+.cell.fill {
     background: black;
 }
 
-/* ===== CLEAN SUBTLE X ===== */
+/* CLEAN CENTERED X MARK */
 
 .cell.xmark {
     position: relative;
@@ -151,20 +161,20 @@ td {
 
 .cell.xmark::after {
     content: "×";
-    color: #888;
-    font-size: 18px;
-    font-weight: 600;
+    color: #999;
+    font-size: 20px;
+    font-weight: bold;
     position: absolute;
-    top: 3px;
-    left: 9px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
 }
 
-/* ===== CLUE CELLS ===== */
+/* CLUE CELLS */
 
 .clue {
     background: #f0f0f0;
     font-weight: bold;
-    font-size: 14px;
 }
 
 .blank {
@@ -172,26 +182,27 @@ td {
     border: none;
 }
 
-/* ===== SUBMIT BUTTON ===== */
+/* ================= BUTTONS ================= */
 
 button {
-    padding: 8px 18px;
+    padding: 10px 22px;
     font-size: 15px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
     background: #1e3a8a;
     color: white;
     cursor: pointer;
+    margin: 5px;
 }
 
 button:hover {
     background: #162d6b;
 }
 
-/* ===== RESULT MESSAGE ===== */
+/* ================= RESULT MESSAGE ================= */
 
 #resultMessage {
     font-weight: bold;
     font-size: 18px;
-    margin-top: 10px;
+    margin-top: 12px;
 }
