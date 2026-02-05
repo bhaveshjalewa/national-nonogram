@@ -1,7 +1,7 @@
 const size = 15;
 let timer = 0;
 let interval;
-let playerName = "";   // added
+let playerName = "";
 
 const solution = [
 [1,1,1,1,1,0,0,1,1,1,0,0,1,1,1],
@@ -21,7 +21,7 @@ const solution = [
 [1,1,1,1,1,0,0,1,1,1,0,0,1,1,1],
 ];
 
-/* ================= START GAME (ADDED) ================= */
+/* ================= START GAME ================= */
 
 function startGame() {
 
@@ -37,7 +37,7 @@ function startGame() {
   document.getElementById("startScreen").style.display = "none";
   document.getElementById("gameArea").style.display = "block";
 
-  buildGame();   // your original function
+  buildGame();
 }
 
 /* ================= TIMER ================= */
@@ -51,7 +51,7 @@ document.getElementById("timer").innerText = `Time: ${m}:${s}`;
 },1000);
 }
 
-/* ================= CLUE LOGIC (UNCHANGED) ================= */
+/* ================= CLUE LOGIC ================= */
 
 function generateClues(line) {
 let clues = [];
@@ -68,11 +68,11 @@ if(clues.length===0) clues=[0];
 return clues;
 }
 
-/* ================= BUILD GAME (UNCHANGED) ================= */
+/* ================= BUILD GAME ================= */
 
 function buildGame() {
 const container = document.getElementById("game");
-container.innerHTML = "";  // small safety clear
+container.innerHTML = "";
 const table = document.createElement("table");
 
 let colClues = [];
@@ -113,24 +113,20 @@ td.className="cell";
 td.dataset.row=r-maxCol;
 td.dataset.col=c-maxRow;
 
-td.onclick = function(){
+/* FIXED BEHAVIOR */
 
-    // If X exists, remove it
+td.onclick = function(){
     if(this.classList.contains("xmark")){
         this.classList.remove("xmark");
     }
-
     this.classList.toggle("fill");
 };
 
 td.oncontextmenu = function(e){
     e.preventDefault();
-
-    // If black exists, remove it
     if(this.classList.contains("fill")){
         this.classList.remove("fill");
     }
-
     this.classList.toggle("xmark");
 };
 
@@ -143,13 +139,12 @@ table.appendChild(tr);
 }
 
 container.appendChild(table);
-startTimer();   // original behavior kept
+startTimer();
 }
 
-/* ================= SUBMIT (UNCHANGED) ================= */
+/* ================= SUBMIT ================= */
 
 function submitPuzzle(){
-clearInterval(interval);
 
 let correct=true;
 
@@ -160,21 +155,47 @@ let filled = cell.classList.contains("fill") ? 1:0;
 if(filled != solution[r][c]) correct=false;
 });
 
+const result = document.getElementById("resultMessage");
+
 if(correct){
+
+clearInterval(interval);
+
 let code = generateCode();
-saveLeaderboard(playerName, timer, code);  // uses stored name
-alert("Correct! Your code:\n"+code);
+saveLeaderboard(playerName, timer, code);
+
+result.style.color = "green";
+result.innerHTML = "✔ Correct Solution!<br>Your Code:<br><b>" + code + "</b>";
+
 }
 else{
-alert("Incorrect Solution");
+
+result.style.color = "red";
+result.innerHTML = "✖ Incorrect Solution. Keep trying.";
+
+/* IMPORTANT: TIMER NOT STOPPED */
+/* GRID NOT CLEARED */
+
 }
 }
 
-/* ================= CODE GENERATION (UNCHANGED) ================= */
+/* ================= CLEAR GRID (NEW) ================= */
+
+function clearGrid(){
+
+document.querySelectorAll(".cell").forEach(cell=>{
+cell.classList.remove("fill");
+cell.classList.remove("xmark");
+});
+
+document.getElementById("resultMessage").innerHTML = "";
+
+}
+
+/* ================= CODE GENERATION ================= */
 
 function generateCode(){
-const chars="!Q7z@X3$Lm^2&Va9#Kp*U5d%Rg8?Tb1+Yn0CfWs4Jh
-";
+const chars="!Q7z@X3$Lm^2&Va9#Kp*U5d%Rg8?Tb1+Yn0CfWs4Jh";
 let code="";
 for(let i=0;i<52;i++){
 code+=chars[Math.floor(Math.random()*chars.length)];
@@ -182,7 +203,7 @@ code+=chars[Math.floor(Math.random()*chars.length)];
 return code;
 }
 
-/* ================= LEADERBOARD (UNCHANGED) ================= */
+/* ================= LEADERBOARD ================= */
 
 function saveLeaderboard(name,time,code){
 let lb = JSON.parse(localStorage.getItem("lb"))||[];
@@ -201,7 +222,5 @@ div.innerHTML+=`${i+1}. ${p.name} - ${p.time}s<br>`;
 });
 }
 
-/* ================= REMOVE AUTO START ================= */
-
-/* DO NOT auto call buildGame() anymore */
+/* DO NOT AUTO START */
 displayLeaderboard();
