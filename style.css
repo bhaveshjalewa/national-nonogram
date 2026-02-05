@@ -1,62 +1,45 @@
-body{
-font-family:Arial;
-text-align:center;
-background:#f2f4f8;
+#startScreen{
+  width:700px;
+  margin:auto;
+  text-align:left;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-h1{
-margin-top:20px;
+#startScreen input{
+  padding:6px;
+  margin-right:10px;
 }
 
-#timer{
-color:red;
-font-size:20px;
-margin:10px;
+.exampleWrapper{
+  margin-top:10px;
+  text-align:center;
 }
 
-table{
-border-collapse:collapse;
-margin:auto;
+.example{
+  border-collapse:collapse;
+  margin:auto;
 }
 
-td{
-width:30px;
-height:30px;
-border:1px solid #999;
-text-align:center;
-vertical-align:middle;
-font-size:14px;
+.example td{
+  width:25px;
+  height:25px;
+  border:1px solid #999;
+  text-align:center;
 }
 
-.cell{
-background:white;
-cursor:pointer;
+.example .black{
+  background:black;
 }
 
-.fill{
-background:black;
+.example .clue{
+  background:#e0e0e0;
+  font-weight:bold;
 }
 
-.xmark{
-background:white;
-color:red;
-}
-.xmark::after{
-content:"X";
-}
-
-.clue{
-background:#ddd;
-font-weight:bold;
-}
-
-.blank{
-background:#f2f4f8;
-border:none;
-}
-
-button{
-margin:20px;
-padding:10px 20px;
-font-size:16px;
+.example .blank{
+  border:none;
+  background:white;
 }
