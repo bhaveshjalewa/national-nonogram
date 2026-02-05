@@ -114,13 +114,26 @@ td.dataset.row=r-maxCol;
 td.dataset.col=c-maxRow;
 
 td.onclick = function(){
-this.classList.toggle("fill");
+
+    // If X exists, remove it
+    if(this.classList.contains("xmark")){
+        this.classList.remove("xmark");
+    }
+
+    this.classList.toggle("fill");
 };
 
 td.oncontextmenu = function(e){
-e.preventDefault();
-this.classList.toggle("xmark");
+    e.preventDefault();
+
+    // If black exists, remove it
+    if(this.classList.contains("fill")){
+        this.classList.remove("fill");
+    }
+
+    this.classList.toggle("xmark");
 };
+
 }
 
 tr.appendChild(td);
@@ -160,7 +173,8 @@ alert("Incorrect Solution");
 /* ================= CODE GENERATION (UNCHANGED) ================= */
 
 function generateCode(){
-const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const chars="!Q7z@X3$Lm^2&Va9#Kp*U5d%Rg8?Tb1+Yn0CfWs4Jh
+";
 let code="";
 for(let i=0;i<52;i++){
 code+=chars[Math.floor(Math.random()*chars.length)];
