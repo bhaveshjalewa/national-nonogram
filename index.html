@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>National Nonogram</title>
-<link rel="stylesheet" href="style.css">
+  <title>National Nonogram</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>National Nonogram</h1>
-<div id="timer">Time: 00:00</div>
 
-<div id="nonogram"></div>
-<button onclick="submitNonogram()">Submit</button>
-<p id="result"></p>
+<div id="start">
+  <input id="playerName" placeholder="Enter your name">
+  <button onclick="startGame()">Start</button>
+</div>
+
+<div id="game" style="display:none;">
+
+  <div id="timer" class="timer">Time: 00:00</div>
+
+  <div id="board"></div>
+
+  <button onclick="submit()">Submit</button>
+
+  <p id="code" class="code"></p>
+
+  <h3>Leaderboard</h3>
+  <ul id="leaderboard"></ul>
+
+</div>
 
 <script src="script.js"></script>
 </body>
