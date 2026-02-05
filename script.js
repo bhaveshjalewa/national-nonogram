@@ -5,7 +5,7 @@
 const OFFICIAL_CODE =
 "X9MPLQ7AZBYTRC5W8E2KJDH4UF6VGN1SOI3LXPQR8ZTWYUCABMN";
 
-/* HARD GRID WITH LONG RUNS */
+/* HARD GRID WITH LONG RUNS (8,7,5 present) */
 const solution = [
 [0,0,1,1,1,1,1,1,1,1,0,0,1,1,0],
 [1,1,1,1,1,0,0,1,1,1,1,1,0,1,0],
@@ -62,25 +62,29 @@ function drawBoard(){
     for(let c=0;c<15;c++){
       let cell=document.createElement("td");
 
-      // Left Click = Fill
+      // LEFT CLICK = FILL
       cell.addEventListener("click", ()=>{
         if(attemptUsed) return;
+
         if(cell.classList.contains("xmark")){
           cell.classList.remove("xmark");
           cell.innerText="";
         }
+
         cell.classList.toggle("black");
         user[r][c] = cell.classList.contains("black") ? 1 : 0;
       });
 
-      // Right Click = X Mark
+      // RIGHT CLICK = X MARK
       cell.addEventListener("contextmenu", (e)=>{
         e.preventDefault();
         if(attemptUsed) return;
+
         if(cell.classList.contains("black")){
           cell.classList.remove("black");
           user[r][c]=0;
         }
+
         cell.classList.toggle("xmark");
         cell.innerText = cell.classList.contains("xmark") ? "X" : "";
       });
@@ -97,7 +101,10 @@ function drawBoard(){
 /**************** SUBMIT ****************/
 
 function submit(){
-  if(attemptUsed){ alert("Attempt already used"); return; }
+  if(attemptUsed){
+    alert("Attempt already used");
+    return;
+  }
 
   for(let r=0;r<15;r++)
     for(let c=0;c<15;c++)
