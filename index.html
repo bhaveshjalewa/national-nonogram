@@ -9,83 +9,23 @@
 
 <h1>National Nonogram</h1>
 
+<!-- START SCREEN -->
 <div id="startScreen">
-
-  <h2>Enter Your Name</h2>
-  <input type="text" id="playerName" placeholder="Your Name">
-  <button onclick="startGame()">Start Competition</button>
-
-  <hr>
-
-  <h3>How to Play</h3>
-  <p>
-    Each number represents a group of consecutive filled (black) cells.
-    Numbers on the left apply to rows.
-    Numbers on the top apply to columns.
-    If multiple numbers appear, they represent separate groups.
-    There must be at least one empty cell between groups.
-  </p>
-
-  <h3>Controls</h3>
-  <p>
-    Left Click → Fill a cell (Black)<br>
-    Right Click → Mark a cell with X
-  </p>
-
-  <h3>Competition Rules</h3>
-  <p>
-    • Enter your name before starting.<br>
-    • Timer begins when the puzzle starts.<br>
-    • Only one submission attempt is allowed.<br>
-    • Do not refresh the page during competition.<br>
-    • A submission code will appear after correct completion.
-  </p>
-
-  <h3>Example: Solved 3×3 Nonogram</h3>
-
-  <div class="exampleWrapper">
-
-    <table class="example">
-      <tr>
-        <td class="blank"></td>
-        <td class="clue">1</td>
-        <td class="clue">1</td>
-        <td class="clue">1</td>
-      </tr>
-      <tr>
-        <td class="clue">1</td>
-        <td class="black"></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="clue">1</td>
-        <td></td>
-        <td class="black"></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="clue">1</td>
-        <td></td>
-        <td></td>
-        <td class="black"></td>
-      </tr>
-    </table>
-
-  </div>
-
+  <input type="text" id="playerName" placeholder="Enter your name">
+  <button onclick="startGame()">Start</button>
 </div>
 
+<!-- GAME AREA -->
 <div id="gameArea" style="display:none;">
   <div id="timer">Time: 00:00</div>
-  <div id="board"></div>
-  <button onclick="submit()">Submit</button>
-  <p id="code"></p>
+  <div id="game"></div>
+  <button onclick="submitPuzzle()">Submit</button>
 
   <h3>Leaderboard</h3>
   <div id="leaderboard"></div>
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
