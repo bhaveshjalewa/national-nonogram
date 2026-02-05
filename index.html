@@ -42,34 +42,77 @@
             <li>Do not refresh the page during competition.</li>
         </ul>
 
-        <div class="section-title">Example (Solved 3×3 Nonogram)</div>
+<div class="section-title">Example (Solved 5×5 Nonogram)</div>
 
-        <table class="example-grid">
-            <tr>
-                <td style="border:none;"></td>
-                <td class="example-clue">1</td>
-                <td class="example-clue">1</td>
-                <td class="example-clue">1</td>
-            </tr>
-            <tr>
-                <td class="example-clue">1</td>
-                <td class="example-fill"></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td class="example-clue">1</td>
-                <td></td>
-                <td class="example-fill"></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td class="example-clue">1</td>
-                <td></td>
-                <td></td>
-                <td class="example-fill"></td>
-            </tr>
-        </table>
+<p style="margin-bottom:10px;">
+This example shows how multiple clues in a row require at least one blank cell between groups.
+Some filled cells also satisfy both row and column clues simultaneously.
+</p>
+
+<table class="example-grid">
+
+    <!-- COLUMN CLUES -->
+    <tr>
+        <td style="border:none;"></td>
+        <td class="example-clue">1</td>
+        <td class="example-clue">3</td>
+        <td class="example-clue">1 1</td>
+        <td class="example-clue">3</td>
+        <td class="example-clue">1</td>
+    </tr>
+
+    <!-- ROW 1 -->
+    <tr>
+        <td class="example-clue">3</td>
+        <td></td>
+        <td class="example-fill"></td>
+        <td class="example-fill"></td>
+        <td class="example-fill"></td>
+        <td></td>
+    </tr>
+
+    <!-- ROW 2 -->
+    <tr>
+        <td class="example-clue">1 1</td>
+        <td class="example-fill"></td>
+        <td></td>
+        <td class="example-fill"></td>
+        <td></td>
+        <td class="example-fill"></td>
+    </tr>
+
+    <!-- ROW 3 -->
+    <tr>
+        <td class="example-clue">5</td>
+        <td class="example-fill"></td>
+        <td class="example-fill"></td>
+        <td class="example-fill"></td>
+        <td class="example-fill"></td>
+        <td class="example-fill"></td>
+    </tr>
+
+    <!-- ROW 4 -->
+    <tr>
+        <td class="example-clue">1 1</td>
+        <td class="example-fill"></td>
+        <td></td>
+        <td class="example-fill"></td>
+        <td></td>
+        <td class="example-fill"></td>
+    </tr>
+
+    <!-- ROW 5 -->
+    <tr>
+        <td class="example-clue">3</td>
+        <td></td>
+        <td class="example-fill"></td>
+        <td class="example-fill"></td>
+        <td class="example-fill"></td>
+        <td></td>
+    </tr>
+
+</table>
+
 
     </div>
 
