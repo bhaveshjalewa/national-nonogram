@@ -17,6 +17,13 @@ td{
   vertical-align:middle;
   cursor:pointer;
   user-select:none;
+  font-size:14px;
+}
+
+.clue{
+  background:#e9ecef;
+  font-size:12px;
+  cursor:default;
 }
 
 .black{
@@ -38,10 +45,6 @@ td{
 button{
   padding:8px 18px;
   margin:10px;
-}
-
-input{
-  padding:6px;
 }
 
 .code{
