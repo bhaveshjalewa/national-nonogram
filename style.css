@@ -1,120 +1,197 @@
-body{
-  font-family: Arial, sans-serif;
-  background:#f2f4f8;
-  margin:0;
-  padding:0;
-  text-align:center;
+/* ===== GLOBAL ===== */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-/* ===== TITLE ===== */
-h1{
-  margin-top:40px;
-  font-size:36px;
-  text-align:center;
+h1 {
+    font-size: 38px;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    margin-top: 0;
 }
 
 /* ===== START SCREEN ===== */
-#startScreen{
-  width:700px;
-  margin:40px auto;
-  padding:30px;
-  background:white;
-  border-radius:15px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+
+#startScreen {
+    width: 850px;
+    margin: 40px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: left;
 }
 
-#startScreen input{
-  padding:10px;
-  width:300px;
-  font-size:16px;
-  border:1px solid #ccc;
-  border-radius:6px;
+#nameSection {
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-#startScreen button{
-  padding:10px 20px;
-  font-size:16px;
-  margin-left:10px;
-  border:none;
-  background:black;
-  color:white;
-  border-radius:6px;
-  cursor:pointer;
+#playerName {
+    padding: 10px;
+    width: 280px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
-#startScreen button:hover{
-  background:#333;
+#startBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    background: #1e3a8a;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#startBtn:hover {
+    background: #162d6b;
+}
+
+/* ===== INSTRUCTION PANEL ===== */
+
+#instructions {
+    margin-top: 25px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+#instructions ul {
+    padding-left: 20px;
+    margin-top: 8px;
+}
+
+#instructions li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* ===== 3x3 EXAMPLE NONOGRAM ===== */
+
+.example-grid {
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.example-grid td {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #999;
+    text-align: center;
+}
+
+.example-fill {
+    background: black;
+}
+
+.example-clue {
+    font-size: 14px;
+    font-weight: bold;
+    background: #eaeaea;
 }
 
 /* ===== GAME AREA ===== */
-#gameArea{
-  display:none;
-  margin-top:20px;
+
+#gameArea {
+    margin-top: 20px;
 }
 
-#timer{
-  font-size:20px;
-  font-weight:bold;
-  color:red;
-  margin:15px 0;
+#timer {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 15px;
 }
 
-/* ===== BOARD ===== */
-table{
-  border-collapse:collapse;
-  margin:20px auto;
+/* ===== NONOGRAM BOARD ===== */
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
 }
 
-td{
-  width:30px;
-  height:30px;
-  border:1px solid #bbb;
-  text-align:center;
-  vertical-align:middle;
-  font-size:14px;
+td {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #bbb;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
 }
 
-.cell{
-  background:white;
-  cursor:pointer;
+.cell {
+    background: white;
+    cursor: pointer;
 }
 
-.fill{
-  background:black;
+.fill {
+    background: black;
 }
 
-.xmark{
-  color:red;
-  font-weight:bold;
+/* ===== CLEAN SUBTLE X ===== */
+
+.cell.xmark {
+    position: relative;
 }
 
-.clue{
-  background:#e9ecef;
-  font-weight:bold;
+.cell.xmark::after {
+    content: "×";
+    color: #888;
+    font-size: 18px;
+    font-weight: 600;
+    position: absolute;
+    top: 3px;
+    left: 9px;
 }
 
-.blank{
-  background:#f2f4f8;
-  border:none;
+/* ===== CLUE CELLS ===== */
+
+.clue {
+    background: #f0f0f0;
+    font-weight: bold;
+    font-size: 14px;
 }
 
-/* ===== BUTTON ===== */
-button{
-  padding:10px 18px;
-  margin-top:15px;
-  cursor:pointer;
-  border-radius:6px;
-  border:1px solid #ccc;
+.blank {
+    background: #f4f6f9;
+    border: none;
 }
 
-/* ===== RESULT ===== */
-#resultMessage{
-  font-size:18px;
-  font-weight:bold;
-  margin-top:12px;
+/* ===== SUBMIT BUTTON ===== */
+
+button {
+    padding: 8px 18px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: none;
+    background: #1e3a8a;
+    color: white;
+    cursor: pointer;
 }
 
-/* ===== LEADERBOARD ===== */
-#leaderboard{
-  margin-top:10px;
+button:hover {
+    background: #162d6b;
+}
+
+/* ===== RESULT MESSAGE ===== */
+
+#resultMessage {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
 }
