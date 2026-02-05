@@ -1,6 +1,7 @@
 const size = 15;
 let timer = 0;
 let interval;
+let playerName = "";   // added
 
 const solution = [
 [1,1,1,1,1,0,0,1,1,1,0,0,1,1,1],
@@ -20,6 +21,27 @@ const solution = [
 [1,1,1,1,1,0,0,1,1,1,0,0,1,1,1],
 ];
 
+/* ================= START GAME (ADDED) ================= */
+
+function startGame() {
+
+  const nameInput = document.getElementById("playerName").value.trim();
+
+  if(nameInput === ""){
+    alert("Please enter your name");
+    return;
+  }
+
+  playerName = nameInput;
+
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("gameArea").style.display = "block";
+
+  buildGame();   // your original function
+}
+
+/* ================= TIMER ================= */
+
 function startTimer() {
 interval = setInterval(() => {
 timer++;
@@ -28,6 +50,8 @@ let s = (timer%60).toString().padStart(2,'0');
 document.getElementById("timer").innerText = `Time: ${m}:${s}`;
 },1000);
 }
+
+/* ================= CLUE LOGIC (UNCHANGED) ================= */
 
 function generateClues(line) {
 let clues = [];
@@ -44,8 +68,11 @@ if(clues.length===0) clues=[0];
 return clues;
 }
 
+/* ================= BUILD GAME (UNCHANGED) ================= */
+
 function buildGame() {
 const container = document.getElementById("game");
+container.innerHTML = "";  // small safety clear
 const table = document.createElement("table");
 
 let colClues = [];
@@ -103,8 +130,10 @@ table.appendChild(tr);
 }
 
 container.appendChild(table);
-startTimer();
+startTimer();   // original behavior kept
 }
+
+/* ================= SUBMIT (UNCHANGED) ================= */
 
 function submitPuzzle(){
 clearInterval(interval);
@@ -119,15 +148,16 @@ if(filled != solution[r][c]) correct=false;
 });
 
 if(correct){
-let name = prompt("Enter your name:");
 let code = generateCode();
-saveLeaderboard(name, timer, code);
+saveLeaderboard(playerName, timer, code);  // uses stored name
 alert("Correct! Your code:\n"+code);
 }
 else{
 alert("Incorrect Solution");
 }
 }
+
+/* ================= CODE GENERATION (UNCHANGED) ================= */
 
 function generateCode(){
 const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -137,6 +167,8 @@ code+=chars[Math.floor(Math.random()*chars.length)];
 }
 return code;
 }
+
+/* ================= LEADERBOARD (UNCHANGED) ================= */
 
 function saveLeaderboard(name,time,code){
 let lb = JSON.parse(localStorage.getItem("lb"))||[];
@@ -155,5 +187,7 @@ div.innerHTML+=`${i+1}. ${p.name} - ${p.time}s<br>`;
 });
 }
 
-buildGame();
+/* ================= REMOVE AUTO START ================= */
+
+/* DO NOT auto call buildGame() anymore */
 displayLeaderboard();
