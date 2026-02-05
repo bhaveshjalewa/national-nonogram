@@ -14,8 +14,38 @@ td{
   height:30px;
   border:1px solid #999;
   text-align:center;
+  vertical-align:middle;
+  cursor:pointer;
+  user-select:none;
 }
 
-td.black{
+.black{
   background:black;
+}
+
+.xmark{
+  color:red;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.timer{
+  font-weight:bold;
+  color:red;
+  margin:10px;
+}
+
+button{
+  padding:8px 18px;
+  margin:10px;
+}
+
+input{
+  padding:6px;
+}
+
+.code{
+  font-weight:bold;
+  color:green;
+  margin-top:10px;
 }
