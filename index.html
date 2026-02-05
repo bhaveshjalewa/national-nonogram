@@ -12,54 +12,53 @@
 <!-- ================= START SCREEN ================= -->
 <div id="startScreen">
 
-    <!-- NAME SECTION -->
     <div id="nameSection">
         <h2>Enter Your Name</h2>
         <input type="text" id="playerName" placeholder="Enter your name">
         <button id="startBtn" onclick="startGame()">Start</button>
     </div>
 
-    <!-- INSTRUCTIONS -->
     <div id="instructions">
 
-        <div class="section-title">How To Play</div>
+        <h3>How To Play</h3>
         <ul>
-            <li>Each number represents a group of consecutive filled (black) cells.</li>
+            <li>Each number represents consecutive filled (black) cells.</li>
             <li>Multiple numbers mean separate groups.</li>
-            <li>There must be at least one empty cell between groups.</li>
-            <li>Numbers on the left apply to rows. Numbers on top apply to columns.</li>
+            <li>There must be at least ONE blank cell between groups.</li>
+            <li>Left numbers → Row clues. Top numbers → Column clues.</li>
         </ul>
 
-        <div class="section-title">Controls</div>
+        <h3>Controls</h3>
         <ul>
-            <li>Left Click → Fill cell (Black)</li>
-            <li>Right Click → Mark cell with X (Blank)</li>
+            <li>Left Click → Fill (Black)</li>
+            <li>Right Click → X Mark</li>
         </ul>
 
-        <div class="section-title">Competition Rules</div>
+        <h3>Competition Rules</h3>
         <ul>
             <li>Enter your name before starting.</li>
             <li>Timer starts when game begins.</li>
             <li>Only one submission allowed.</li>
-            <li>Do not refresh the page during competition.</li>
+            <li>Do not refresh page.</li>
         </ul>
 
-        <div class="section-title">Example (Solved 5×5 Nonogram)</div>
+        <h3>Example (Solved 5×5 Nonogram)</h3>
 
-        <p style="margin-bottom:10px;">
-            This example demonstrates that multiple clues such as 
-            <b>1&nbsp;1</b> require at least one blank cell between groups.
-            A filled cell may satisfy both row and column clues.
+        <p>
+            Notice how clue <b>1&nbsp;&nbsp;1</b> requires a blank cell between groups.
+            Also, one filled cell satisfies both row and column clues.
         </p>
+
+        <div class="example-wrapper">
 
         <table class="example-grid">
 
             <!-- Column Clues -->
             <tr>
-                <td style="border:none;"></td>
+                <td class="no-border"></td>
                 <td class="example-clue">1</td>
                 <td class="example-clue">3</td>
-                <td class="example-clue">1&nbsp;1</td>
+                <td class="example-clue">1&nbsp;&nbsp;1</td>
                 <td class="example-clue">3</td>
                 <td class="example-clue">1</td>
             </tr>
@@ -68,56 +67,57 @@
             <tr>
                 <td class="example-clue">3</td>
                 <td></td>
-                <td class="example-fill"></td>
-                <td class="example-fill"></td>
-                <td class="example-fill"></td>
+                <td class="fill"></td>
+                <td class="fill"></td>
+                <td class="fill"></td>
                 <td></td>
             </tr>
 
             <!-- Row 2 -->
             <tr>
-                <td class="example-clue">1&nbsp;1</td>
-                <td class="example-fill"></td>
+                <td class="example-clue">1&nbsp;&nbsp;1</td>
+                <td class="fill"></td>
                 <td></td>
-                <td class="example-fill"></td>
+                <td class="fill"></td>
                 <td></td>
-                <td class="example-fill"></td>
+                <td class="fill"></td>
             </tr>
 
             <!-- Row 3 -->
             <tr>
                 <td class="example-clue">5</td>
-                <td class="example-fill"></td>
-                <td class="example-fill"></td>
-                <td class="example-fill"></td>
-                <td class="example-fill"></td>
-                <td class="example-fill"></td>
+                <td class="fill"></td>
+                <td class="fill"></td>
+                <td class="fill"></td>
+                <td class="fill"></td>
+                <td class="fill"></td>
             </tr>
 
             <!-- Row 4 -->
             <tr>
-                <td class="example-clue">1&nbsp;1</td>
-                <td class="example-fill"></td>
+                <td class="example-clue">1&nbsp;&nbsp;1</td>
+                <td class="fill"></td>
                 <td></td>
-                <td class="example-fill"></td>
+                <td class="fill"></td>
                 <td></td>
-                <td class="example-fill"></td>
+                <td class="fill"></td>
             </tr>
 
             <!-- Row 5 -->
             <tr>
                 <td class="example-clue">3</td>
                 <td></td>
-                <td class="example-fill"></td>
-                <td class="example-fill"></td>
-                <td class="example-fill"></td>
+                <td class="fill"></td>
+                <td class="fill"></td>
+                <td class="fill"></td>
                 <td></td>
             </tr>
 
         </table>
 
-    </div>
+        </div>
 
+    </div>
 </div>
 
 <!-- ================= GAME AREA ================= -->
