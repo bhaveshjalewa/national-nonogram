@@ -7,68 +7,58 @@
 </head>
 <body>
 
-<h1>Arithmos – Vitta Vibhava</h1>
+<h1 class="main-title">Arithmos – Vitta Vibhava</h1>
 
 <!-- ================= START SCREEN ================= -->
+
 <div id="startScreen">
 
-    <div class="card">
+    <div class="name-card">
+        <h2>Enter Your Name</h2>
+        <input type="text" id="playerName" placeholder="Enter your name">
+        <button onclick="startGame()">Start</button>
+    </div>
 
-        <div class="name-section">
-            <h2>Enter Your Name</h2>
-            <input type="text" id="playerName" placeholder="Enter your name">
-            <button onclick="startGame()">Start</button>
-        </div>
-
-        <hr>
+    <div class="instruction-card">
 
         <h3>How To Play</h3>
         <ul>
-            <li>Fill white cells using digits 1–9.</li>
-            <li>Numbers must add up to the clue value.</li>
-            <li>No duplicate digits allowed in a sum group.</li>
-            <li>Each diagonal clue cell may contain a Down clue, Right clue, or both.</li>
+            <li>Fill white cells with numbers 1–9.</li>
+            <li>Numbers in each group must add up to the clue.</li>
+            <li>No digit can repeat inside the same group.</li>
+            <li>Each clue cell may contain horizontal, vertical, or both clues.</li>
         </ul>
 
         <h3>Controls</h3>
         <ul>
-            <li>Click a white cell → Use number pad to enter digit.</li>
-            <li>Click again → Change number.</li>
+            <li>Select a white cell.</li>
+            <li>Use number pad to enter digit.</li>
             <li>Use Undo to revert last move.</li>
         </ul>
 
         <h3>Competition Rules</h3>
         <ul>
-            <li>Enter your name before starting.</li>
             <li>Timer starts when game begins.</li>
-            <li>Only one correct submission allowed per device.</li>
-            <li>Do not refresh the page.</li>
+            <li>Once correct submission is made, board locks.</li>
+            <li>Do not refresh during competition.</li>
         </ul>
 
         <h3>Example (Solved Kakuro)</h3>
 
-        <p>
-        This example shows a clue cell containing both Down and Right clues.
-        </p>
-
         <div class="example-wrapper">
             <table class="example-grid">
                 <tr>
-                    <td class="black"></td>
-                    <td class="clue-cell">
-                        <div class="clue-down">16</div>
-                        <div class="clue-right">24</div>
+                    <td class="clue-example both">
+                        <span class="down">16</span>
+                        <span class="right">24</span>
                     </td>
-                    <td class="white">7</td>
-                    <td class="white">9</td>
+                    <td class="white-example">8</td>
+                    <td class="white-example">9</td>
                 </tr>
                 <tr>
-                    <td class="clue-cell">
-                        <div class="clue-right">17</div>
-                    </td>
-                    <td class="white">8</td>
-                    <td class="white">9</td>
-                    <td class="white">0</td>
+                    <td class="white-example">7</td>
+                    <td class="white-example">9</td>
+                    <td class="white-example">8</td>
                 </tr>
             </table>
         </div>
@@ -78,16 +68,38 @@
 </div>
 
 <!-- ================= GAME AREA ================= -->
+
 <div id="gameArea" style="display:none;">
 
     <div id="timer">Time: 00:00</div>
 
-    <div id="board"></div>
+    <div id="boardContainer">
+        <div id="kakuroBoard"></div>
+    </div>
 
-    <button onclick="submitPuzzle()">Submit</button>
-    <button onclick="undoMove()">Undo</button>
+    <div class="game-buttons">
+        <button onclick="undoMove()">Undo</button>
+        <button onclick="submitPuzzle()">Submit</button>
+    </div>
 
     <p id="resultMessage"></p>
+
+    <!-- Number Pad -->
+    <div id="numberPad">
+        <div class="pad-header">Number Pad</div>
+        <div class="pad-grid">
+            <button onclick="enterNumber(1)">1</button>
+            <button onclick="enterNumber(2)">2</button>
+            <button onclick="enterNumber(3)">3</button>
+            <button onclick="enterNumber(4)">4</button>
+            <button onclick="enterNumber(5)">5</button>
+            <button onclick="enterNumber(6)">6</button>
+            <button onclick="enterNumber(7)">7</button>
+            <button onclick="enterNumber(8)">8</button>
+            <button onclick="enterNumber(9)">9</button>
+        </div>
+        <button class="clear-btn" onclick="clearCell()">Clear Cell</button>
+    </div>
 
 </div>
 
