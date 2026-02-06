@@ -2,122 +2,79 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shadework</title>
+<title>Arithmos – Vitta Vibhava</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Shadework</h1>
+<h1>Arithmos – Vitta Vibhava</h1>
 
 <!-- ================= START SCREEN ================= -->
 <div id="startScreen">
 
-    <div id="nameSection">
-        <h2>Enter Your Name</h2>
-        <input type="text" id="playerName" placeholder="Enter your name">
-        <button id="startBtn" onclick="startGame()">Start</button>
-    </div>
+    <div class="card">
 
-    <div id="instructions">
+        <div class="name-section">
+            <h2>Enter Your Name</h2>
+            <input type="text" id="playerName" placeholder="Enter your name">
+            <button onclick="startGame()">Start</button>
+        </div>
+
+        <hr>
 
         <h3>How To Play</h3>
         <ul>
-            <li>Each number represents consecutive filled (black) cells.</li>
-            <li>Multiple numbers mean separate groups.</li>
-            <li>There must be at least ONE blank cell between groups.</li>
-            <li>Left numbers → Row clues. Top numbers → Column clues.</li>
+            <li>Fill white cells using digits 1–9.</li>
+            <li>Numbers must add up to the clue value.</li>
+            <li>No duplicate digits allowed in a sum group.</li>
+            <li>Each diagonal clue cell may contain a Down clue, Right clue, or both.</li>
         </ul>
 
         <h3>Controls</h3>
         <ul>
-            <li>Left Click → Fill (Black)</li>
-            <li>Right Click → X Mark</li>
+            <li>Click a white cell → Use number pad to enter digit.</li>
+            <li>Click again → Change number.</li>
+            <li>Use Undo to revert last move.</li>
         </ul>
 
         <h3>Competition Rules</h3>
         <ul>
             <li>Enter your name before starting.</li>
             <li>Timer starts when game begins.</li>
-            <li>Only one submission allowed.</li>
-            <li>Do not refresh page.</li>
+            <li>Only one correct submission allowed per device.</li>
+            <li>Do not refresh the page.</li>
         </ul>
 
-        <h3>Example (Solved 5×5 Nonogram)</h3>
+        <h3>Example (Solved Kakuro)</h3>
 
         <p>
-            Notice how clue <b>1&nbsp;1&nbsp;1</b> requires blank cells between groups.
-            Also, filled cells satisfy both row and column clues simultaneously.
+        This example shows a clue cell containing both Down and Right clues.
         </p>
 
         <div class="example-wrapper">
-
             <table class="example-grid">
-
-                <!-- COLUMN CLUES (FIXED) -->
                 <tr>
-                    <td class="no-border"></td>
-                    <td class="example-clue">3</td>
-                    <td class="example-clue">1&nbsp;1&nbsp;1</td>
-                    <td class="example-clue">5</td>
-                    <td class="example-clue">1&nbsp;1&nbsp;1</td>
-                    <td class="example-clue">3</td>
+                    <td class="black"></td>
+                    <td class="clue-cell">
+                        <div class="clue-down">16</div>
+                        <div class="clue-right">24</div>
+                    </td>
+                    <td class="white">7</td>
+                    <td class="white">9</td>
                 </tr>
-
-                <!-- ROW 1 -->
                 <tr>
-                    <td class="example-clue">3</td>
-                    <td></td>
-                    <td class="example-fill"></td>
-                    <td class="example-fill"></td>
-                    <td class="example-fill"></td>
-                    <td></td>
+                    <td class="clue-cell">
+                        <div class="clue-right">17</div>
+                    </td>
+                    <td class="white">8</td>
+                    <td class="white">9</td>
+                    <td class="white">0</td>
                 </tr>
-
-                <!-- ROW 2 -->
-                <tr>
-                    <td class="example-clue">1&nbsp;1&nbsp;1</td>
-                    <td class="example-fill"></td>
-                    <td></td>
-                    <td class="example-fill"></td>
-                    <td></td>
-                    <td class="example-fill"></td>
-                </tr>
-
-                <!-- ROW 3 -->
-                <tr>
-                    <td class="example-clue">5</td>
-                    <td class="example-fill"></td>
-                    <td class="example-fill"></td>
-                    <td class="example-fill"></td>
-                    <td class="example-fill"></td>
-                    <td class="example-fill"></td>
-                </tr>
-
-                <!-- ROW 4 -->
-                <tr>
-                    <td class="example-clue">1&nbsp;1&nbsp;1</td>
-                    <td class="example-fill"></td>
-                    <td></td>
-                    <td class="example-fill"></td>
-                    <td></td>
-                    <td class="example-fill"></td>
-                </tr>
-
-                <!-- ROW 5 -->
-                <tr>
-                    <td class="example-clue">3</td>
-                    <td></td>
-                    <td class="example-fill"></td>
-                    <td class="example-fill"></td>
-                    <td class="example-fill"></td>
-                    <td></td>
-                </tr>
-
             </table>
-
         </div>
 
     </div>
+
 </div>
 
 <!-- ================= GAME AREA ================= -->
@@ -125,15 +82,12 @@
 
     <div id="timer">Time: 00:00</div>
 
-    <div id="game"></div>
+    <div id="board"></div>
 
     <button onclick="submitPuzzle()">Submit</button>
-    <button onclick="clearGrid()">Clear Grid</button>
+    <button onclick="undoMove()">Undo</button>
 
     <p id="resultMessage"></p>
-
-    <h3>Leaderboard</h3>
-    <div id="leaderboard"></div>
 
 </div>
 
